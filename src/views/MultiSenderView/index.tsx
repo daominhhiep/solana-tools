@@ -1066,7 +1066,7 @@ function CSV() {
           setSuccess(false);
           setError("");
 
-          const nbTransferPerTx = 5;
+          const nbTransferPerTx = 10;
           let nbTx: number;
           if (csvData.length % nbTransferPerTx == 0) {
             nbTx = csvData.length / nbTransferPerTx;
@@ -1189,9 +1189,11 @@ function CSV() {
                   mint,
                   publicKey
                 );
+                console.log(source_account)
                 const balanceResp = await connection.getTokenAccountBalance(
                   source_account
                 );
+
                 const decimals = balanceResp.value.decimals;
                 const TransferIx = Token.createTransferInstruction(
                   TOKEN_PROGRAM_ID,
