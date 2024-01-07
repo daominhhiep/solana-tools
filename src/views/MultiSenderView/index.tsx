@@ -1189,11 +1189,9 @@ function CSV() {
                   mint,
                   publicKey
                 );
-                console.log(source_account)
                 const balanceResp = await connection.getTokenAccountBalance(
                   source_account
                 );
-
                 const decimals = balanceResp.value.decimals;
                 const TransferIx = Token.createTransferInstruction(
                   TOKEN_PROGRAM_ID,
